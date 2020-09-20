@@ -36,7 +36,11 @@ class Partie {
 
                     this.score++;   //Incrémente le score affiché dans le hud
 
-                               
+                    if(this.isDone==false){
+
+                        this.terrain[i].surroundingBombs=0;
+                        
+                    }           
 
                     this.countSurroundingBombs(i);
 
