@@ -1,0 +1,50 @@
+body {
+	background-color: black;
+}
+
+#game-view {
+	width: 500px;
+	height: 600px;
+	margin: auto;
+	margin-top: 50px;
+	border: 1px solid black;
+	background-color : white;
+}
+
+
+#game-view-squares {
+	height: 500px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 25px;
+	box-sizing: border-box;
+}
+
+.game-view-square {
+	width: 20%;
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	border-radius: 15px;
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: none;
+	background-color: grey;
+}
+
+.game-view-square.highlighted { color: green; }
+
+.game-view-square:hover { background-color: white; }
+
+
+
+#hud {
+	height: 100px;
+	width: 500px;
+	border: 2px solid red;
+	text-align: center;
+
+}
+

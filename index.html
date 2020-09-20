@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Démineur</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src='main.js'></script>
+
+    <script src='square.js' charset="utf-8"></script>
+
+    <script src='partie.js' charset="utf-8"></script>
+
+    <script>
+        let partieEnCours = new Partie();
+    </script>
+
+</head>
+<body>
+
+    <div id="game-view">
+
+        <div id="hud">
+            <h1 class="display-5">
+               Score : {{ score }}
+               <br>
+               {{ status }}
+            </h1>
+        </div>
+
+        <div id="game-view-squares">
+
+            <div class="game-view-square" v-for="(terrain, i) in terrain" v-on:click="$data.faireAction(i)">
+             {{ terrain.surroundingBombs }}
+             {{ terrain.isBomb }}
+            </div>
+
+        </div>
+
+    </div>
+    
+
+    <script>
+    	var app = new Vue({
+    		el: "#game-view",
+            data: partieEnCours
+    		})
+    	
+    </script>
+    
+</body>
+</html>
