@@ -22,8 +22,6 @@ class Partie {
 
         if (this.enCours && !this.terrain[i].value && this.terrain[i].isClicked == false) { //Permet de vérifier si les conditions pour cliquer sont réunies
 
-            this.terrain[i].isClicked = true;   //Rends la case cliquée
-
                 //Permet d'afficher la valeur de la case
                 if (this.terrain[i].isBomb == true) {
 
@@ -34,12 +32,14 @@ class Partie {
 
                 } else if (this.terrain[i].isBomb == false) {
 
+                    this.terrain[i].isClicked = true;   //Rends la case cliquée
+
                     this.score++;   //Incrémente le score affiché dans le hud
 
                     if(this.isDone==false){
 
                         this.terrain[i].surroundingBombs=0;
-                        
+
                     }           
 
                     this.countSurroundingBombs(i);
@@ -102,7 +102,7 @@ class Partie {
     }
 
     countSurroundingBombs(i) {  //Tout un tas de vérifications et de conditions pénibles à lire pour vérifier si le nombre de bombes autour et cliquer si c'est pas une bombe etc
-      /*                          //C'est vraiment (vraiment) un calvaire à lire par contre
+                                //C'est vraiment (vraiment) un calvaire à lire par contre
         if (this.terrain[i+1].isBomb==true) {
 
             if(i<4) {
@@ -151,8 +151,8 @@ class Partie {
                 
             } 
 
-        }*/
-/*
+        }
+
         if (this.terrain[i-1].isBomb==true) {
 
             if(i>0 && i<5) {
@@ -201,43 +201,29 @@ class Partie {
                 
             } 
 
-        } */
+        } 
 
-        if (this.terrain[i-5].isBomb==true) {
-
-            
+        if (i > 5 && this.terrain[i-5].isBomb == true) {
 
             this.terrain[i].surroundingBombs++;
 
-            
 
-        } else if (this.terrain[i-5].isBomb==false) {
-
-            
+        } else if (i > 5 && this.terrain[i-5].isBomb == false) {
                 
             this.faireAction(i-5);
-
             
         }
 
-        if (this.terrain[i+5].isBomb==true) {
-
-            
+        if (i < 20 && this.terrain[i+5].isBomb == 1) {
 
             this.terrain[i].surroundingBombs++;
 
-            
+        }   else if (i < 20 && this.terrain[i+5].isBomb== 0) {
 
-        }   else if (this.terrain[i+5].isBomb==false) {
-
-            
-
-            this.faireAction(i+5);
-            
-            
+            this.faireAction(i+5);    
 
         }
-/*
+
         if (this.terrain[i+6].isBomb==true) {
 
             if(i<4) {
@@ -286,8 +272,8 @@ class Partie {
                 
             } 
 
-        }*/
-/*
+        }
+
         if (this.terrain[i+4].isBomb==true) {
 
             if(i<4) {
@@ -336,9 +322,9 @@ class Partie {
                 
             }
 
-        } */
+        } 
 
-       /* if (this.terrain[i-4].isBomb==true) {
+        if (this.terrain[i-4].isBomb==true) {
 
             if(i>0 && i<5) {
 
@@ -386,8 +372,8 @@ class Partie {
                 
             }
 
-        }*/
-/*
+        }
+
         if (this.terrain[i-6].isBomb==true) {
             
             if(i<5) {
@@ -435,7 +421,7 @@ class Partie {
                 this.faireAction(i-6);
                 
             }
-        }  */
+        }  
     }
  }
 
