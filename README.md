@@ -6,3 +6,5 @@ Note du développeur : Il auraît été plus intelligent de faire un tableau à 
                       
                       Pour recommencer une partie, il suffit de rafraichir la page.
                       
+                      J'ai décidé de ne pas créer des dossiers car l'arborescence n'est pas ultra complexe
+                      
